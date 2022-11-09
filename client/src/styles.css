@@ -17,14 +17,14 @@
 
 .heading {
   color: rgba(0,183,255, 1);
-
-  font-size: 320%;
+  font-size: 3vw;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
+
 .image {
   margin-left: 15px;
-  height: 6vh;
+  height: 7vh;
 }
 
 .container-grid{
