@@ -9,7 +9,7 @@
 }
 .appBar {
   width: 70vw;
-  height: 8vh;
+  height: 8vmin;
   border-radius: 8px;
   display: flex;
   flex-direction: row;
@@ -21,7 +21,7 @@
 
 .heading {
   color: rgb(93, 177, 255);
-  font-size: 3vw;
+  font-size: 5vmin;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
   background-color: transparent
@@ -29,7 +29,7 @@
 
 .image {
   margin-left: 15px;
-  height: 7vh;
+  height: 6vmin;
   background-color: white;
 }
 
