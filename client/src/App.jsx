@@ -21,15 +21,14 @@ function App() {
         <h2 className="heading">Memories</h2>
         <img className="image" src={memories} alt="memories" />
       </div>
-      <div>
-        <div className="container-grid">
-          <div className="grid">
-            <div className="posts-grid">
-              <Posts />
-            </div>
-            <div className="form-grid">
-              <Form />
-            </div>
+
+      <div className="container-grid">
+        <div className="grid">
+          <div className="posts-grid">
+            <Posts />
+          </div>
+          <div className="form-grid">
+            <Form />
           </div>
         </div>
       </div>

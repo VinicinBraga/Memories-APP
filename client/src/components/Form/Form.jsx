@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { TextField, Button, Typography, Paper } from "@mui/material";
 import FileBase from "react-file-base64";
+
+import "./style.css";
 
 function Form() {
   const [postData, setPostData] = useState({
@@ -15,52 +16,44 @@ function Form() {
   const clear = () => {};
 
   return (
-    <Paper
-      autoComplete="off"
-      noValidate
-      className="classes.form"
-      onSubmit={handleSubmit}
-    >
-      <form>
-        <Typography>Creating a Memory</Typography>
-        <TextField
+    <div className="main-container">
+      <form className="form-container" onSubmit={handleSubmit}>
+        <label className="title">Creating a Memory</label>
+        <input
+          className="input-field"
           name="creator"
-          variant="outlined"
-          label="Creator"
-          fullWidth
+          placeholder="Creator"
           value={postData.creator}
           onChange={(e) =>
             setPostData({ ...postData, creator: e.target.value })
           }
         />
-        <TextField
+        <input
+          className="input-field"
           name="title"
-          variant="outlined"
-          label="Title"
-          fullWidth
+          placeholder="Title"
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
-        <TextField
+        <input
+          className="input-field"
           name="message"
-          variant="outlined"
-          label="Message"
-          fullWidth
+          placeholder="Message"
           value={postData.message}
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
           }
         />
-        <TextField
+        <input
+          className="input-field"
           name="tags"
-          variant="outlined"
-          label="Tags"
-          fullWidth
+          placeholder="Tags"
           value={postData.tags}
           onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
         />
-        <div className="fileInput">
-          <FileBase
+        <div className="file-container">
+          <input
+            className="fileInput"
             type="file"
             multiple={false}
             onDone={({ base64 }) =>
@@ -68,14 +61,14 @@ function Form() {
             }
           />
         </div>
-        <Button type="submit" fullWidth>
+        <button className="submit" type="submit">
           Submit
-        </Button>
-        <Button onClick={clear} fullWidth>
+        </button>
+        <button className="clear" onClick={clear}>
           Clear
-        </Button>
+        </button>
       </form>
-    </Paper>
+    </div>
   );
 }
 
