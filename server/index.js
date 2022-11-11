@@ -6,26 +6,23 @@ import * as dotenv from "dotenv";
 import postRoutes from "./routes/posts.js";
 
 const app = express();
-const port = 3000;
 
 dotenv.config();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-app.use("/posts", postRoutes); //all in postRouts will begining with /posts
+
+app.use("/posts", postRoutes);
+
+const CONNECTION_URL = `mongodb+srv://user:${process.env.PASSWORD}@memories-data.7y7emym.mongodb.net/?retryWrites=true&w=majority`;
+const PORT = process.env.PORT || 5000;
 
 mongoose
-  .connect(
-    `mongodb+srv://user:${process.env.PASSWORD}@memories-data.7y7emym.mongodb.net/?retryWrites=true&w=majority`,
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() =>
-    app.listen(port, () =>
-      console.log(`Example app listening on port ${port}!`)
+    app.listen(PORT, () =>
+      console.log(`Server Running on Port: http://localhost:${PORT}`)
     )
   )
-  .catch((error) => console.log(error));
+  .catch((error) => console.log(`${error} did not connect`));
