@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Button, Typography, Paper } from "@material-ui/core";
+import { TextField, Button, Typography, Paper } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import FileBase from "react-file-base64";
-
-import useStyles from "./styles";
 import { createPost, updatePost } from "../../actions/posts";
 
 const Form = ({ currentId, setCurrentId }) => {
@@ -18,7 +16,6 @@ const Form = ({ currentId, setCurrentId }) => {
     currentId ? state.posts.find((message) => message._id === currentId) : null
   );
   const dispatch = useDispatch();
-  const classes = useStyles();
 
   useEffect(() => {
     if (post) setPostData(post);
@@ -48,11 +45,11 @@ const Form = ({ currentId, setCurrentId }) => {
   };
 
   return (
-    <Paper className={classes.paper}>
+    <Paper className="paper">
       <form
         autoComplete="off"
         noValidate
-        className={`${classes.root} ${classes.form}`}
+        className="root-form"
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">
@@ -98,7 +95,7 @@ const Form = ({ currentId, setCurrentId }) => {
             setPostData({ ...postData, tags: e.target.value.split(",") })
           }
         />
-        <div className={classes.fileInput}>
+        <div className="fileInput">
           <FileBase
             type="file"
             multiple={false}
@@ -108,7 +105,7 @@ const Form = ({ currentId, setCurrentId }) => {
           />
         </div>
         <Button
-          className={classes.buttonSubmit}
+          className="buttonSubmit"
           variant="contained"
           color="primary"
           size="large"
